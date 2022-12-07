@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Player
+  - Enemy
+  - Ground
+  - SpikeTrap
+  - Item
+  - TriggerBox
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BackGround
+    uniqueID: 2598711623
+    locked: 0
+  - name: Objects
+    uniqueID: 2832560155
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2617488005
+    locked: 0
+  - name: Item
+    uniqueID: 3264059841
+    locked: 0
+  - name: Player
+    uniqueID: 1727362227
+    locked: 0
+  - name: Grass
+    uniqueID: 2180742057
+    locked: 0

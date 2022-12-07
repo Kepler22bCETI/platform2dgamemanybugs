@@ -1,0 +1,4 @@
+repository "2DPlatForm000@archaeoceti@cloud.cn"
+  path "/"
+    br "/main"
+    co "/main"
