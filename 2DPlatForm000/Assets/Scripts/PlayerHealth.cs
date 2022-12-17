@@ -12,6 +12,8 @@ public class PlayerHealth : MonoBehaviour
     private Renderer myRender;
     private PolygonCollider2D polygonCollider2D;
 
+    [SerializeField] private AudioSource hurtAudio;
+
     void Start()
     {
         myRender = GetComponent<Renderer>();
@@ -22,11 +24,8 @@ public class PlayerHealth : MonoBehaviour
     public void DamagePlayer(int damage)
     {
         health -= damage;
-        
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }                    
+        hurtAudio.Play();
+
         BlinkPlayer(blinks, time);
         polygonCollider2D.enabled = false;
         StartCoroutine(ShowPlayerHitBox());
@@ -49,5 +48,6 @@ public class PlayerHealth : MonoBehaviour
         }
         myRender.enabled = true;
     }
-    
+   
+
 }

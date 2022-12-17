@@ -41,6 +41,7 @@ public class PlayerAttack : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.GetComponent<Enemy>().takeDamage(damage);

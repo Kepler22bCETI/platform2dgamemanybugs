@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D myRigidbody;
-    public float runSpeed;
-    public float jumpSpeed;
-    public float doubleJumpSpeed;
+    [SerializeField] private Rigidbody2D myRigidbody;
+    [SerializeField] private float runSpeed;
+    [SerializeField] private float jumpSpeed;
+    [SerializeField] private float doubleJumpSpeed;
     private Animator myAnim;
     private BoxCollider2D myFeet;
     private bool isGround;
     private bool canDoubleJump;
+    [SerializeField] private AudioSource jumpAudio;
  
  
     void Start()
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
+        
         if (Input.GetButtonDown("Jump"))
         {
             if (isGround)
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 jumpVel = new Vector2(0.0f, jumpSpeed * Time.deltaTime);
                 myRigidbody.velocity = Vector2.up * jumpVel;
                 canDoubleJump = true;
+                jumpAudio.Play();
             }
             else
             {
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
                     Vector2 doubleJumpVel = new Vector2(0.0f, doubleJumpSpeed * Time.deltaTime);
                     myRigidbody.velocity = Vector2.up * doubleJumpVel;
                     canDoubleJump = false;
+                    jumpAudio.Play();
                 }
             }
         }

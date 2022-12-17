@@ -10,9 +10,8 @@ public class GhostHalo : Enemy
     public Transform movePos;
     public Transform leftDownPos;
     public Transform rightUpPos;
+    
 
-   
-  
     public void Start()
     {
         
@@ -20,6 +19,7 @@ public class GhostHalo : Enemy
         waitTime = startWaitTime;
         movePos.position = GetRandomPos();
     }
+    
     public void Update()
     {
         base.Update();
@@ -36,6 +36,7 @@ public class GhostHalo : Enemy
                 waitTime -= Time.deltaTime;
             }
         }
+
     }
 
     Vector2 GetRandomPos()
@@ -43,5 +44,6 @@ public class GhostHalo : Enemy
         Vector2 rndPos = new Vector2(Random.Range(leftDownPos.position.x, rightUpPos.position.x), Random.Range(leftDownPos.position.y, rightUpPos.position.y));
         return rndPos;
     }
+    
 
 }
