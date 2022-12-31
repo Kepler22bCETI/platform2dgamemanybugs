@@ -63,19 +63,28 @@ public abstract class Enemy : MonoBehaviour
                 
             }            
         }
+        if (other.gameObject.CompareTag("Poop"))
+        {
+            Destroy(other.gameObject);
+            health--;
+            if (health <= 0)
+            {
+                Death();
+            }
+        }
+ 
     }
-    
-    
+ 
     //protected void DieAnim()
     //{
     //    enemyDeathAnim.SetTrigger("death");
     //}
- 
 
     public void Death()
     {
         Destroy(gameObject);
     }
 
+    
 
 }

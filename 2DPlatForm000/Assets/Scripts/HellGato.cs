@@ -1,36 +1,56 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class HellGato : Enemy
 {
-    public float speed;
-    public float radius;
-  
-    private Transform playerTransform;
+    [SerializeField]
+    Transform player;
+    [SerializeField]
+    float agroRange;
+    [SerializeField]
+    float moveSpeed;
 
+    Rigidbody2D rb2d;
 
-    public void Start()
+    private void Start()
     {
-
         base.Start();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        
+        rb2d = GetComponent<Rigidbody2D>();
     }
-    public void Update()
+
+    private void Update()
     {
         base.Update();
-        if (playerTransform != null)
+        float disToPlayer = Vector2.Distance(transform.position, player.position);
+        
+        if (disToPlayer < agroRange)
         {
-            float distance = (transform.position - playerTransform.position).sqrMagnitude;
-            if (distance < radius)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
-            }
-
+            ChasePlayer();
         }
-       
+        else
+        {
+            StopChasingPlayer();
+        }
     }
 
- 
+    void ChasePlayer()
+    {
+        if (transform.position.x < player.position.x)
+        {
+            rb2d.velocity = new Vector2(moveSpeed, 0);
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else if (transform.position.x > player.position.x)
+        {
+            rb2d.velocity = new Vector2(-moveSpeed, 0);
+            transform.localScale = new Vector2(1, 1);
+        }
+    }
+
+    void StopChasingPlayer()
+    {
+        rb2d.velocity = new Vector2(0, 0);
+    }
 }

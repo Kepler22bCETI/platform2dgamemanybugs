@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Teleporter
+  - Poop
   layers:
   - Default
   - TransparentFX
@@ -60,4 +61,7 @@ TagManager:
     locked: 0
   - name: Grass
     uniqueID: 2180742057
+    locked: 0
+  - name: poop
+    uniqueID: 4194280635
     locked: 0
